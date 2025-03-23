@@ -7,7 +7,7 @@ function updateTheme() {
     const options = { timeZone: 'Asia/Phnom_Penh', hour: '2-digit', hour12: false };
     const cambodiaHour = new Intl.DateTimeFormat('en-US', options).format(new Date());
     const currentHour = parseInt(cambodiaHour, 10);
-    if (currentHour >= 6 && currentHour > 18) {  // 6 AM - 5:59 PM -> Day Mode
+    if (currentHour >= 6 && currentHour < 18) {  // 6 AM - 5:59 PM -> Day Mode
         document.body.classList.add('day');
         document.body.classList.remove('night');
     } else { // 6 PM - 5:59 AM -> Night Mode
