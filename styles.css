@@ -1,0 +1,138 @@
+/* Import a Romantic Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap');
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  flex-direction: column;
+  text-align: center;
+  transition: background 0.5s ease, color 0.5s ease;
+  margin: 0;
+}
+
+body.day {
+  background: linear-gradient(45deg, #A7C7E7, #7EC8E3);
+  color: #123456; /* Darker blue for better contrast */
+}
+
+body.night {
+  background: linear-gradient(45deg, #1B2735, #415A77);
+  color: #E3F2FD;
+}
+
+/* Container for Text */
+.container {
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.3); /* Light semi-transparent background */
+  backdrop-filter: blur(10px); /* Soft blur effect */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+}
+
+/* Lovely Heading */
+h1 {
+  font-size: 4vw;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  color: #0D2C54; /* Darker navy blue */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+/* Lovely Message */
+.message {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #054A91; /* Deep blue for better contrast */
+  text-shadow: 0 0 15px rgba(5, 74, 145, 0.7);
+  animation: glow 2s infinite alternate;
+  font-family: 'Dancing Script', cursive;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 10px rgba(167, 199, 231, 0.9); }
+  100% { text-shadow: 0 0 20px rgba(126, 200, 227, 1); }
+}
+
+/* Soft Text */
+p {
+  font-size: 2em;
+  margin-top: 10px;
+  opacity: 1;
+  animation: fadeInText 1s 1s forwards;
+  color: #E3F2FD;
+  font-family: 'Dancing Script', cursive;
+}
+
+#specialMessage {
+  font-size: 1.5em;
+}
+
+/* Firework Styles */
+.firework {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 1;
+  pointer-events: none;
+  animation: fireworkLaunch 1s ease-out forwards;
+}
+
+@keyframes fireworkLaunch {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(calc(-1 * var(--explodeHeight, 300px))) scale(1); }
+}
+
+/* Explosion Particles */
+.explosion {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 1;
+  pointer-events: none;
+  animation: explode 1.5s ease-out forwards;
+}
+
+@keyframes explode {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx, 0), var(--dy, 0)) scale(3); opacity: 0; }
+}
+
+
+/* Blue Flowers */
+.flower {
+  position: absolute;
+  font-size: 24px;
+  color: #A7C7E7;
+  animation: flowerFall 5s linear infinite;
+  pointer-events: none;
+  top: -50px;
+  left: calc(var(--x) * 100vw);
+  transform: translateX(-50%);
+}
+
+@keyframes flowerFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(360deg); }
+}
